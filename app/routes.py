@@ -12,4 +12,9 @@ def product_detail(product_id):
     product = Product.query.get_or_404(product_id)
     return render_template('product_detail.html', product=product)
 
-# Add more routes for login, signup, cart, etc.
+@app.route('/add_to_cart', methods=['POST'])
+def add_to_cart():
+    product_id = request.form.get('product_id')
+    quantity = request.form.get('quantity')
+    # Add logic to handle adding to cart
+    return redirect(url_for('home'))
